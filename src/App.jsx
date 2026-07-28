@@ -9,6 +9,7 @@ import DepartmentsPage from "./pages/DepartmentsPage.jsx";
 import VCSummaryPage from "./pages/VCSummaryPage.jsx";
 import GuardianPage from "./pages/GuardianPage.jsx";
 import HowItWorksPage from "./pages/HowItWorksPage.jsx";
+import PreAdvisingPage from "./pages/PreAdvisingPage.jsx";
 import EarlyWarningPage from "./pages/EarlyWarningPage.jsx";
 import TeacherWorkloadPage from "./pages/TeacherWorkloadPage.jsx";
 import FacilityPage from "./pages/FacilityPage.jsx";
@@ -86,6 +87,7 @@ export default function App() {
               {page === "vc" && <VCSummaryPage />}
               {page === "attendance" && <AttendancePage scopeDept={effectiveScope} />}
               {page === "departments" && <DepartmentsPage scopeDept={effectiveScope} />}
+              {page === "preadvising" && <PreAdvisingPage role={role} scopeDept={effectiveScope} />}
               {page === "earlywarning" && <EarlyWarningPage scopeDept={effectiveScope} />}
               {page === "teachers" && <TeacherWorkloadPage scopeDept={effectiveScope} />}
               {page === "facility" && <FacilityPage scopeDept={effectiveScope} />}

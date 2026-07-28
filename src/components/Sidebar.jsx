@@ -7,6 +7,7 @@ import {
   MessageSquareHeart,
   Workflow,
   LogOut,
+  GraduationCap,
   ShieldAlert,
   Users2,
   Wrench,
@@ -29,6 +30,7 @@ export const NAV_GROUPS = [
     items: [
       { key: "attendance", label: "Attendance Tracking", icon: ClipboardCheck },
       { key: "departments", label: "Departments", icon: Building2 },
+      { key: "preadvising", label: "Pre-Advising", icon: GraduationCap },
       { key: "earlywarning", label: "Early-Warning", icon: ShieldAlert },
       { key: "teachers", label: "Teacher Workload", icon: Users2 },
     ],
