@@ -47,7 +47,7 @@ export default function EarlyWarningPage({ scopeDept }) {
         }
       >
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, color: COLORS.slate, fontSize: 12.5 }}>
-          <ShieldAlert size={15} /> Score combines attendance, engagement, and advising status — escalate to route a student to their advisor
+          <ShieldAlert size={15} /> Score combines attendance, engagement, and academic risk signals — escalate to route a student to their advisor
         </div>
 
         <table style={{ fontSize: 13 }}>

@@ -53,23 +53,13 @@ export const SESSIONS = [
 
 export const NOTIFICATIONS = [
   { student: "Nusrat Jahan", dept: "BBA · 5th Sem", type: "Absence Alert", channel: "SMS", date: "22 Jul 2026", status: "Delivered" },
-  { student: "Rafiul Islam", dept: "CSE · 3rd Sem", type: "Advising Reminder", channel: "App", date: "21 Jul 2026", status: "Delivered" },
+  { student: "Rafiul Islam", dept: "CSE · 3rd Sem", type: "Engagement Reminder", channel: "App", date: "21 Jul 2026", status: "Delivered" },
   { student: "Tania Akhter", dept: "Civil Eng. · 7th Sem", type: "Fee Due Notice", channel: "SMS", date: "20 Jul 2026", status: "Pending" },
   { student: "Shakil Ahmed", dept: "EEE · 4th Sem", type: "Absence Alert", channel: "App + SMS", date: "19 Jul 2026", status: "Delivered" },
-  { student: "Farzana Rahman", dept: "Law · 2nd Sem", type: "Advising Reminder", channel: "App", date: "19 Jul 2026", status: "Delivered" },
+  { student: "Farzana Rahman", dept: "Law · 2nd Sem", type: "Engagement Reminder", channel: "App", date: "19 Jul 2026", status: "Delivered" },
 ];
 
 export const SEMESTERS = Array.from({ length: 8 }, (_, i) => `Semester ${i + 1}`);
-
-// Pre-Advising Module (Slide 9 / Student Affairs walkthrough, slide 19)
-export const ADVISING_REQUESTS = [
-  { id: 1, student: "Mahin Chowdhury", dept: "CSE", course: "CSE412 · Machine Learning", creditsUsed: 96, creditsTotal: 144, prereqMet: true, status: "Pending" },
-  { id: 2, student: "Israt Zahan", dept: "BBA", course: "BBA315 · Financial Modeling", creditsUsed: 72, creditsTotal: 126, prereqMet: false, status: "Pending" },
-  { id: 3, student: "Tanvir Hasan", dept: "EEE", course: "EEE330 · Power Systems", creditsUsed: 88, creditsTotal: 136, prereqMet: true, status: "Pending" },
-  { id: 4, student: "Sadia Islam", dept: "LLB", course: "LLB220 · Constitutional Law II", creditsUsed: 60, creditsTotal: 132, prereqMet: true, status: "Approved" },
-  { id: 5, student: "Rakib Hossain", dept: "CE", course: "CE305 · Structural Analysis", creditsUsed: 80, creditsTotal: 140, prereqMet: false, status: "Rejected" },
-  { id: 6, student: "Nabila Karim", dept: "TEX", course: "TEX210 · Fabric Engineering", creditsUsed: 54, creditsTotal: 138, prereqMet: true, status: "Pending" },
-];
 
 // At-Risk Early-Warning System (Slide 9-10)
 export const AT_RISK_STUDENTS = [
@@ -172,14 +162,14 @@ export const ROOMS = [
 // Every role except University Admin is also scoped to a single department.
 export const ROLE_ACCESS = {
   "University Admin": [
-    "overview", "vc", "attendance", "departments", "preadvising",
+    "overview", "vc", "attendance", "departments",
     "earlywarning", "teachers", "facility", "guardian", "how", "governance", "roadmap",
   ],
   "Dept Admin": [
-    "overview", "attendance", "departments", "preadvising",
+    "overview", "attendance", "departments",
     "earlywarning", "teachers", "facility", "guardian", "how", "governance", "roadmap",
   ],
-  "Program Coordinator": ["overview", "attendance", "departments", "preadvising", "how", "governance"],
+  "Program Coordinator": ["overview", "attendance", "departments", "how", "governance"],
   "Course Teacher": ["attendance", "departments", "how", "governance"],
   "Student": ["departments", "how", "governance"],
 };
@@ -215,7 +205,7 @@ export const LAYERS = [
     key: "custom",
     title: "BS23 Custom Layer",
     tag: "Built for UU",
-    desc: "Monitoring dashboards, pre-advising, guardian portal, and the early-warning system — purpose-built for Uttara University.",
+    desc: "Monitoring dashboards, guardian portal, and the early-warning system — purpose-built for Uttara University.",
   },
   {
     key: "erp",
@@ -239,7 +229,7 @@ export const ROADMAP = [
   { step: "01", title: "Discovery", desc: "Confirm ERP integration points, finalize department scope" },
   { step: "02", title: "Core LMS Setup", desc: "Categories, roles, cohorts, base plugins configured" },
   { step: "03", title: "ERP Integration", desc: "Middleware build: enrolment, fees, results sync, SSO" },
-  { step: "04", title: "Custom Modules", desc: "Pre-advising, dashboards, guardian portal, early-warning system" },
+  { step: "04", title: "Custom Modules", desc: "Dashboards, guardian portal, early-warning system" },
   { step: "05", title: "UAT", desc: "Pilot departments test end-to-end with real data" },
   { step: "06", title: "Go-Live", desc: "Phased rollout across all 14 departments" },
 ];

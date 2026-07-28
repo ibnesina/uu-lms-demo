@@ -5,7 +5,7 @@ import Badge from "../components/Badge.jsx";
 import { COLORS } from "../theme.js";
 import { NOTIFICATIONS, DEPARTMENTS } from "../data.js";
 
-const TYPES = ["Absence Alert", "Advising Reminder", "Fee Due Notice"];
+const TYPES = ["Absence Alert", "Engagement Reminder", "Fee Due Notice"];
 const CHANNELS = ["SMS", "App", "App + SMS"];
 
 export default function GuardianPage({ scopeDept }) {

@@ -14,7 +14,6 @@ demo all actually work against in-memory sample data.
 **Academic Operations**
 - Attendance Tracking — searchable, filterable, sortable session register
 - Departments — expandable tree of all 14 UU departments → semesters
-- Pre-Advising — approve/reject requests with live prerequisite checks
 - Early-Warning System — risk-scored student list with an "Escalate to Advisor" action
 - Teacher Workload — sortable faculty activity & engagement table
 
@@ -87,7 +86,6 @@ uu-lms-demo/
 │       ├── VCSummaryPage.jsx
 │       ├── GuardianPage.jsx
 │       ├── HowItWorksPage.jsx
-│       ├── PreAdvisingPage.jsx
 │       ├── EarlyWarningPage.jsx
 │       ├── TeacherWorkloadPage.jsx
 │       ├── FacilityPage.jsx
