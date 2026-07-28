@@ -53,22 +53,233 @@ export const SESSIONS = [
 
 export const NOTIFICATIONS = [
   { student: "Nusrat Jahan", dept: "BBA · 5th Sem", type: "Absence Alert", channel: "SMS", date: "22 Jul 2026", status: "Delivered" },
-  { student: "Rafiul Islam", dept: "CSE · 3rd Sem", type: "Advising Reminder", channel: "App", date: "21 Jul 2026", status: "Delivered" },
+  { student: "Rafiul Islam", dept: "CSE · 3rd Sem", type: "Engagement Reminder", channel: "App", date: "21 Jul 2026", status: "Delivered" },
   { student: "Tania Akhter", dept: "Civil Eng. · 7th Sem", type: "Fee Due Notice", channel: "SMS", date: "20 Jul 2026", status: "Pending" },
   { student: "Shakil Ahmed", dept: "EEE · 4th Sem", type: "Absence Alert", channel: "App + SMS", date: "19 Jul 2026", status: "Delivered" },
-  { student: "Farzana Rahman", dept: "Law · 2nd Sem", type: "Advising Reminder", channel: "App", date: "19 Jul 2026", status: "Delivered" },
+  { student: "Farzana Rahman", dept: "Law · 2nd Sem", type: "Engagement Reminder", channel: "App", date: "19 Jul 2026", status: "Delivered" },
 ];
 
 export const SEMESTERS = Array.from({ length: 8 }, (_, i) => `Semester ${i + 1}`);
 
-// Pre-Advising Module (Slide 9 / Student Affairs walkthrough, slide 19)
-export const ADVISING_REQUESTS = [
-  { id: 1, student: "Mahin Chowdhury", dept: "CSE", course: "CSE412 · Machine Learning", creditsUsed: 96, creditsTotal: 144, prereqMet: true, status: "Pending" },
-  { id: 2, student: "Israt Zahan", dept: "BBA", course: "BBA315 · Financial Modeling", creditsUsed: 72, creditsTotal: 126, prereqMet: false, status: "Pending" },
-  { id: 3, student: "Tanvir Hasan", dept: "EEE", course: "EEE330 · Power Systems", creditsUsed: 88, creditsTotal: 136, prereqMet: true, status: "Pending" },
-  { id: 4, student: "Sadia Islam", dept: "LLB", course: "LLB220 · Constitutional Law II", creditsUsed: 60, creditsTotal: 132, prereqMet: true, status: "Approved" },
-  { id: 5, student: "Rakib Hossain", dept: "CE", course: "CE305 · Structural Analysis", creditsUsed: 80, creditsTotal: 140, prereqMet: false, status: "Rejected" },
-  { id: 6, student: "Nabila Karim", dept: "TEX", course: "TEX210 · Fabric Engineering", creditsUsed: 54, creditsTotal: 138, prereqMet: true, status: "Pending" },
+export const PRE_ADVISING_TERM = {
+  semester: "Fall 2027",
+  status: "Open",
+  startDate: "01 Sep 2027",
+  endDate: "15 Sep 2027",
+  totalStudents: 1280,
+  submitted: 824,
+};
+
+export const PRE_ADVISING_DEPT_PROGRESS = [
+  { dept: "CSE", totalStudents: 320, submitted: 246 },
+  { dept: "BBA", totalStudents: 280, submitted: 190 },
+  { dept: "EEE", totalStudents: 180, submitted: 128 },
+  { dept: "CE", totalStudents: 160, submitted: 94 },
+  { dept: "LLB", totalStudents: 140, submitted: 98 },
+  { dept: "ENG", totalStudents: 120, submitted: 68 },
+];
+
+export const PRE_ADVISING_COURSE_DEMAND = [
+  { dept: "CSE", course: "CSE411 · Artificial Intelligence", students: 118 },
+  { dept: "CSE", course: "CSE413 · Compiler", students: 96 },
+  { dept: "CSE", course: "CSE421 · Data Mining", students: 132 },
+  { dept: "BBA", course: "BBA415 · Strategic Finance", students: 88 },
+  { dept: "EEE", course: "EEE430 · Control Systems", students: 72 },
+  { dept: "CE", course: "CE420 · Transportation Engineering", students: 54 },
+];
+
+export const PRE_ADVISING_COURSES = [
+  {
+    code: "CSE411",
+    name: "Artificial Intelligence",
+    credit: 3,
+    semester: "Fall 2027",
+    dept: "CSE",
+    status: "Enabled",
+    sections: [
+      { section: "A", teacher: "Dr. Rahman", days: "Sun-Tue", time: "9:00 AM - 10:20 AM", seats: 18, requestedStudents: 42 },
+      { section: "B", teacher: "Dr. Ahmed", days: "Mon-Wed", time: "11:00 AM - 12:20 PM", seats: 25, requestedStudents: 36 },
+      { section: "C", teacher: "Dr. Hasan", days: "Tue-Thu", time: "2:00 PM - 3:20 PM", seats: 10, requestedStudents: 40 },
+    ],
+  },
+  {
+    code: "CSE413",
+    name: "Compiler",
+    credit: 3,
+    semester: "Fall 2027",
+    dept: "CSE",
+    status: "Enabled",
+    sections: [
+      { section: "A", teacher: "Dr. Ahmed", days: "Sun-Tue", time: "10:30 AM - 11:50 AM", seats: 22, requestedStudents: 34 },
+      { section: "B", teacher: "Dr. Hasan", days: "Mon-Wed", time: "12:30 PM - 1:50 PM", seats: 20, requestedStudents: 31 },
+    ],
+  },
+  {
+    code: "CSE421",
+    name: "Data Mining",
+    credit: 3,
+    semester: "Fall 2027",
+    dept: "CSE",
+    status: "Enabled",
+    sections: [
+      { section: "A", teacher: "Dr. Rahman", days: "Sun-Tue", time: "12:30 PM - 1:50 PM", seats: 16, requestedStudents: 48 },
+      { section: "B", teacher: "Dr. Hasan", days: "Tue-Thu", time: "3:30 PM - 4:50 PM", seats: 18, requestedStudents: 44 },
+      { section: "C", teacher: "Dr. Ahmed", days: "Mon-Wed", time: "9:00 AM - 10:20 AM", seats: 21, requestedStudents: 40 },
+    ],
+  },
+  {
+    code: "HUM321",
+    name: "Economics",
+    credit: 3,
+    semester: "Fall 2027",
+    dept: "CSE",
+    status: "Enabled",
+    sections: [
+      { section: "A", teacher: "Ms. Nabila Chowdhury", days: "Sun-Tue", time: "2:00 PM - 3:20 PM", seats: 30, requestedStudents: 52 },
+      { section: "B", teacher: "Mr. Saif Islam", days: "Mon-Wed", time: "11:00 AM - 12:20 PM", seats: 28, requestedStudents: 46 },
+    ],
+  },
+];
+
+export const PRE_ADVISING_SEMESTERS = [
+  {
+    semester: "Fall 2027",
+    courses: [
+      {
+        code: "CSE411",
+        name: "Artificial Intelligence",
+        credit: 3,
+        teachers: [
+          {
+            name: "Dr. Rahman",
+            slots: [
+              { section: "A", days: "Sun-Tue", time: "9:00 AM - 10:20 AM", seats: 18, approvalStatus: "Group Approved" },
+              { section: "D", days: "Thu", time: "4:00 PM - 6:40 PM", seats: 0, approvalStatus: "Pending Approval" },
+            ],
+          },
+          {
+            name: "Dr. Ahmed",
+            slots: [
+              { section: "B", days: "Mon-Wed", time: "11:00 AM - 12:20 PM", seats: 25, approvalStatus: "Pending Approval" },
+            ],
+          },
+          {
+            name: "Dr. Hasan",
+            slots: [
+              { section: "C", days: "Tue-Thu", time: "2:00 PM - 3:20 PM", seats: 10, approvalStatus: "Group Approved" },
+            ],
+          },
+        ],
+      },
+      {
+        code: "CSE413",
+        name: "Compiler",
+        credit: 3,
+        teachers: [
+          {
+            name: "Dr. Ahmed",
+            slots: [
+              { section: "A", days: "Sun-Tue", time: "10:30 AM - 11:50 AM", seats: 22, approvalStatus: "Group Approved" },
+            ],
+          },
+          {
+            name: "Dr. Hasan",
+            slots: [
+              { section: "B", days: "Mon-Wed", time: "12:30 PM - 1:50 PM", seats: 20, approvalStatus: "Pending Approval" },
+            ],
+          },
+        ],
+      },
+      {
+        code: "CSE421",
+        name: "Data Mining",
+        credit: 3,
+        teachers: [
+          {
+            name: "Dr. Rahman",
+            slots: [
+              { section: "A", days: "Sun-Tue", time: "12:30 PM - 1:50 PM", seats: 16, approvalStatus: "Pending Approval" },
+            ],
+          },
+          {
+            name: "Dr. Hasan",
+            slots: [
+              { section: "B", days: "Tue-Thu", time: "3:30 PM - 4:50 PM", seats: 18, approvalStatus: "Group Approved" },
+            ],
+          },
+          {
+            name: "Dr. Ahmed",
+            slots: [
+              { section: "C", days: "Mon-Wed", time: "9:00 AM - 10:20 AM", seats: 21, approvalStatus: "Group Approved" },
+            ],
+          },
+        ],
+      },
+      {
+        code: "HUM321",
+        name: "Economics",
+        credit: 3,
+        teachers: [
+          {
+            name: "Ms. Nabila Chowdhury",
+            slots: [
+              { section: "A", days: "Sun-Tue", time: "2:00 PM - 3:20 PM", seats: 30, approvalStatus: "Group Approved" },
+            ],
+          },
+          {
+            name: "Mr. Saif Islam",
+            slots: [
+              { section: "B", days: "Mon-Wed", time: "11:00 AM - 12:20 PM", seats: 28, approvalStatus: "Pending Approval" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    semester: "Summer 2028",
+    courses: [
+      {
+        code: "CSE415",
+        name: "Computer Vision",
+        credit: 3,
+        teachers: [
+          {
+            name: "Dr. Rahman",
+            slots: [
+              { section: "A", days: "Sun-Tue", time: "10:30 AM - 11:50 AM", seats: 14, approvalStatus: "Pending Approval" },
+            ],
+          },
+          {
+            name: "Dr. Ahmed",
+            slots: [
+              { section: "B", days: "Mon-Wed", time: "2:00 PM - 3:20 PM", seats: 19, approvalStatus: "Group Approved" },
+            ],
+          },
+        ],
+      },
+      {
+        code: "CSE425",
+        name: "Distributed Systems",
+        credit: 3,
+        teachers: [
+          {
+            name: "Dr. Hasan",
+            slots: [
+              { section: "A", days: "Tue-Thu", time: "12:30 PM - 1:50 PM", seats: 17, approvalStatus: "Group Approved" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export const PRE_ADVISING_STUDENT_REQUESTS = [
+  { studentId: "2023-1-60-014", studentName: "Rafiul Islam", dept: "CSE", selectedCourses: ["CSE411 - A", "CSE421 - B", "HUM321 - A"], status: "Submitted" },
+  { studentId: "2023-1-60-021", studentName: "Nusrat Jahan", dept: "CSE", selectedCourses: ["CSE413 - A", "CSE421 - C"], status: "Submitted" },
+  { studentId: "2023-1-60-037", studentName: "Mahin Chowdhury", dept: "CSE", selectedCourses: ["CSE411 - B", "HUM321 - B"], status: "Approved" },
+  { studentId: "2023-1-60-044", studentName: "Israt Zahan", dept: "CSE", selectedCourses: ["CSE413 - B", "CSE421 - A"], status: "Submitted" },
 ];
 
 // At-Risk Early-Warning System (Slide 9-10)
@@ -180,8 +391,8 @@ export const ROLE_ACCESS = {
     "earlywarning", "teachers", "facility", "guardian", "how", "governance", "roadmap",
   ],
   "Program Coordinator": ["overview", "attendance", "departments", "preadvising", "how", "governance"],
-  "Course Teacher": ["attendance", "departments", "how", "governance"],
-  "Student": ["departments", "how", "governance"],
+  "Course Teacher": ["attendance", "departments", "preadvising", "how", "governance"],
+  "Student": ["departments", "preadvising", "how", "governance"],
 };
 
 export const ROLES = Object.keys(ROLE_ACCESS);

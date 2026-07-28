@@ -87,7 +87,7 @@ export default function App() {
               {page === "vc" && <VCSummaryPage />}
               {page === "attendance" && <AttendancePage scopeDept={effectiveScope} />}
               {page === "departments" && <DepartmentsPage scopeDept={effectiveScope} />}
-              {page === "preadvising" && <PreAdvisingPage />}
+              {page === "preadvising" && <PreAdvisingPage role={role} scopeDept={effectiveScope} />}
               {page === "earlywarning" && <EarlyWarningPage scopeDept={effectiveScope} />}
               {page === "teachers" && <TeacherWorkloadPage scopeDept={effectiveScope} />}
               {page === "facility" && <FacilityPage scopeDept={effectiveScope} />}
